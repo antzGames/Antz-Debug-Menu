@@ -1,5 +1,9 @@
 # Antz's Debug Menu add-on for Godot 4.x
 
+Includes an updated demo.  No more separate repor for plugin and demo.
+
+<img width="1152" height="648" alt="debug_menu" src="https://github.com/user-attachments/assets/12bd2c6d-54b2-4783-ad12-280577553276" />
+
 Changes from Calinou's version:
 
 Implements: https://github.com/godot-extended-libraries/godot-debug-menu/issues/27 and https://github.com/godot-extended-libraries/godot-debug-menu/issues/18
@@ -17,12 +21,6 @@ Here is a brief overview of new features implemented:
 You can now set the startup visibility (`hidden, visible_compact, visible_detailed`) in the Project Settings.  Default is hidden.
 
 <img width="1503" height="1090" alt="image" src="https://github.com/user-attachments/assets/979c637d-7629-4c61-92ca-76bc02dccc95" />
-
-**ALSO:**
-
-Includes an updated demo.  No more separate repor for plugin and demo.
-
-<img width="1152" height="648" alt="debug_menu" src="https://github.com/user-attachments/assets/12bd2c6d-54b2-4783-ad12-280577553276" />
 
 **Displays performance information in a Godot project during gameplay.**
 Can be used when running from the editor and in exported projects.
