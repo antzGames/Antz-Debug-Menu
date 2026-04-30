@@ -6,6 +6,7 @@ Implements: https://github.com/godot-extended-libraries/godot-debug-menu/issues/
 
 Here is a brief overview of new features implemented:
 
+- Added `Draw Calls`, `Primitives`, and total `VRAM` stats for the current frame.
 - Crisp font based scaling of overlay.
 - Includes proper scaling of Graphs, Header Widths, Line Spacing, and Font Outline Size.
 - A font size can now be set via a Project Setting **OR** by calling `DebugMenu.set_font_size()` in code.
