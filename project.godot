@@ -1,0 +1,43 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[DebugMenu]
+
+settings/startup_visibility=1
+
+[application]
+
+config/name="Antz's Debug Menu"
+config/version="1.2.0"
+run/main_scene="uid://t44bs5k41y56"
+config/features=PackedStringArray("4.6", "GL Compatibility")
+boot_splash/image="uid://dclmij440hqbb"
+config/icon="uid://f3tn0e1egs5w"
+
+[autoload]
+
+DebugMenu="*uid://cggqb75a8w8r"
+
+[display]
+
+window/vsync/vsync_mode=0
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/debug_menu/plugin.cfg")
+
+[physics]
+
+3d/physics_engine="Jolt Physics"
+
+[rendering]
+
+rendering_device/driver.windows="d3d12"
+anti_aliasing/quality/msaa_2d=1

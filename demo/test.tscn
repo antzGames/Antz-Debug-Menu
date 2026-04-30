@@ -1,0 +1,220 @@
+[gd_scene format=3 uid="uid://t44bs5k41y56"]
+
+[ext_resource type="Script" uid="uid://cs072yreqssac" path="res://demo/test.gd" id="1_j7f4p"]
+[ext_resource type="Texture2D" uid="uid://f3tn0e1egs5w" path="res://demo/assets/antz_512.png" id="2_8gayr"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5ncgh"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_1t3ds"]
+sky_material = SubResource("ProceduralSkyMaterial_5ncgh")
+
+[sub_resource type="Environment" id="Environment_3o4rc"]
+background_mode = 2
+sky = SubResource("Sky_1t3ds")
+tonemap_mode = 2
+ssr_enabled = true
+ssao_enabled = true
+ssil_enabled = true
+sdfgi_enabled = true
+glow_enabled = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_wetkq"]
+size = Vector3(1024, 1, 1024)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xt6kg"]
+albedo_color = Color(0.294118, 0.431373, 0.396078, 1)
+
+[sub_resource type="TorusMesh" id="TorusMesh_5v4of"]
+
+[sub_resource type="Gradient" id="Gradient_yerv8"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_w3fs2"]
+gradient = SubResource("Gradient_yerv8")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_guhnx"]
+albedo_texture = SubResource("GradientTexture2D_w3fs2")
+metallic = 1.0
+metallic_texture = SubResource("GradientTexture2D_w3fs2")
+roughness_texture = SubResource("GradientTexture2D_w3fs2")
+uv1_scale = Vector3(8, 8, 8)
+texture_filter = 5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b641o"]
+albedo_color = Color(0.796078, 0.431373, 0.101961, 1)
+
+[sub_resource type="Animation" id="Animation_physp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_bniwj"]
+resource_name = "move"
+length = 10.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 6.28319, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sld3c"]
+_data = {
+&"RESET": SubResource("Animation_physp"),
+&"move": SubResource("Animation_bniwj")
+}
+
+[node name="Node3D" type="Node3D" unique_id=894861087]
+script = ExtResource("1_j7f4p")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=804050103]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+shadow_blur = 2.0
+directional_shadow_mode = 0
+directional_shadow_fade_start = 1.0
+directional_shadow_max_distance = 12.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=910742763]
+environment = SubResource("Environment_3o4rc")
+
+[node name="Pivot" type="Node3D" parent="." unique_id=1818668207]
+
+[node name="Camera3D" type="Camera3D" parent="Pivot" unique_id=1325661686]
+transform = Transform3D(0.667861, -0.434826, 0.604059, 0, 0.811596, 0.58422, -0.744286, -0.390177, 0.542033, 3.42352, 3.8767, 2.99318)
+fov = 60.0
+
+[node name="Ground" type="MeshInstance3D" parent="." unique_id=1452631764]
+mesh = SubResource("BoxMesh_wetkq")
+surface_material_override/0 = SubResource("StandardMaterial3D_xt6kg")
+
+[node name="Torus" type="MeshInstance3D" parent="." unique_id=893847300]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+mesh = SubResource("TorusMesh_5v4of")
+surface_material_override/0 = SubResource("StandardMaterial3D_guhnx")
+
+[node name="Torus2" type="MeshInstance3D" parent="." unique_id=1904973391]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
+mesh = SubResource("TorusMesh_5v4of")
+surface_material_override/0 = SubResource("StandardMaterial3D_b641o")
+
+[node name="Torus3" type="MeshInstance3D" parent="." unique_id=959734098]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.16509, 0.8, 0.130013)
+mesh = SubResource("TorusMesh_5v4of")
+
+[node name="Torus4" type="MeshInstance3D" parent="." unique_id=1399468906]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.38156, 0.8, -2.10068)
+mesh = SubResource("TorusMesh_5v4of")
+
+[node name="Torus5" type="MeshInstance3D" parent="." unique_id=1991053382]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.81478, 0.8, -2.87771)
+mesh = SubResource("TorusMesh_5v4of")
+
+[node name="Torus6" type="MeshInstance3D" parent="." unique_id=1880691935]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.60249, 0.8, 0.779648)
+mesh = SubResource("TorusMesh_5v4of")
+
+[node name="Torus7" type="MeshInstance3D" parent="." unique_id=561194769]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.44719, 0.8, -1.73311)
+mesh = SubResource("TorusMesh_5v4of")
+
+[node name="Torus8" type="MeshInstance3D" parent="." unique_id=1634153863]
+transform = Transform3D(1, 0, 0, 0, 0.149363, -0.988782, 0, 0.988782, 0.149363, -2.49761, 1.85614, -1.5474)
+mesh = SubResource("TorusMesh_5v4of")
+
+[node name="Torus9" type="MeshInstance3D" parent="." unique_id=615595659]
+transform = Transform3D(0.730007, -0.675773, -0.10208, 0, 0.149363, -0.988782, 0.683439, 0.721818, 0.109036, -0.129876, 1.94662, -1.5474)
+mesh = SubResource("TorusMesh_5v4of")
+
+[node name="Torus10" type="MeshInstance3D" parent="." unique_id=2070741936]
+transform = Transform3D(-0.969145, -0.243727, -0.0368167, 5.43898e-09, 0.149363, -0.988782, 0.246492, -0.958273, -0.144754, 1.64747, 2.03829, -1.5474)
+mesh = SubResource("TorusMesh_5v4of")
+
+[node name="Torus11" type="MeshInstance3D" parent="." unique_id=2146511018]
+transform = Transform3D(0.792644, -0.517793, 0.321878, -0.381576, -0.833075, -0.400481, 0.475515, 0.194618, -0.85791, 0.491417, 1.71169, 2.59955)
+mesh = SubResource("TorusMesh_5v4of")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=188170878]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.22689, 0)
+light_color = Color(0.372549, 0.305882, 0.12549, 1)
+light_volumetric_fog_energy = 500.0
+shadow_enabled = true
+omni_range = 15.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1348279598]
+libraries/ = SubResource("AnimationLibrary_sld3c")
+autoplay = &"move"
+
+[node name="CycleDebugMenuDisplayMode" type="Button" parent="." unique_id=1630343106]
+process_mode = 3
+offset_left = 24.0
+offset_top = 28.0
+offset_right = 224.0
+offset_bottom = 72.0
+text = "Cycle Debug Menu [F3]"
+
+[node name="CycleFontsSizes" type="Button" parent="." unique_id=262244296]
+process_mode = 3
+offset_left = 24.0
+offset_top = 84.0
+offset_right = 224.0
+offset_bottom = 128.0
+toggle_mode = true
+text = "Toggle Fonts Sizes [F4]"
+
+[node name="Pause" type="Button" parent="." unique_id=1312952157]
+process_mode = 3
+offset_left = 24.0
+offset_top = 141.0
+offset_right = 224.0
+offset_bottom = 185.0
+toggle_mode = true
+text = "Pause"
+
+[node name="Vsync" type="Button" parent="." unique_id=1980721849]
+process_mode = 3
+offset_left = 24.0
+offset_top = 198.0
+offset_right = 224.0
+offset_bottom = 242.0
+toggle_mode = true
+text = "Toggle Vsync"
+
+[node name="Logo" type="TextureRect" parent="." unique_id=167177724]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -128.0
+offset_top = -83.0
+offset_bottom = 45.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("2_8gayr")
+expand_mode = 1
+
+[connection signal="pressed" from="CycleDebugMenuDisplayMode" to="." method="_on_cycle_debug_menu_display_mode_pressed"]
+[connection signal="pressed" from="CycleFontsSizes" to="." method="_on_cycle_fonts_sizes_pressed"]
+[connection signal="toggled" from="Pause" to="." method="_on_pause_toggled"]
+[connection signal="toggled" from="Vsync" to="." method="_on_vsync_toggled"]
