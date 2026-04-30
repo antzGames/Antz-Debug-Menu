@@ -1,6 +1,6 @@
 # Antz's Debug Menu add-on for Godot 4.x
 
-Includes an updated demo.  No more separate repor for plugin and demo.
+Includes an updated demo.  No more separate repo for plugin and demo.
 
 <img width="1152" height="648" alt="debug_menu" src="https://github.com/user-attachments/assets/12bd2c6d-54b2-4783-ad12-280577553276" />
 
