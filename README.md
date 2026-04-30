@@ -8,6 +8,7 @@ Includes an updated demo.  No more separate repo for plugin and demo.
 
 <img width="1152" height="648" alt="debug_menu" src="https://github.com/user-attachments/assets/9782238b-b65f-45e5-affb-c288372c6daa" />
 
+https://github.com/user-attachments/assets/20349fb3-6be2-42cb-bd15-992d8d63c59a
 
 Changes from Calinou's version:
 
