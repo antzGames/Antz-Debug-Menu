@@ -6,9 +6,9 @@ Inspired by id Tech 6/7's performance overlay.
 
 Includes an updated demo.  No more separate repo for plugin and demo.
 
-<img width="1152" height="648" alt="debug_menu" src="https://github.com/user-attachments/assets/9782238b-b65f-45e5-affb-c288372c6daa" />
+<img width="1280" height="720" alt="debug_menu" src="https://github.com/user-attachments/assets/288e8f66-1a7d-4e9f-9f13-153f5ea4e105" />
 
-https://github.com/user-attachments/assets/20349fb3-6be2-42cb-bd15-992d8d63c59a
+https://github.com/user-attachments/assets/ad3fce70-f1b9-476b-a569-f5e2044fc7eb
 
 Changes from Calinou's version:
 
