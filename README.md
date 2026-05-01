@@ -20,12 +20,11 @@ Here is a brief overview of new features implemented:
 - Crisp font based scaling of overlay.
 - Includes proper scaling of Graphs, Header Widths, Line Spacing, and Font Outline Size.
 - A font size can now be set via a Project Setting **OR** by calling `DebugMenu.set_font_size()` in code.
-- The default font size is `12`, which means it will look exactly like it is today.
-- F4 key cycles through predefined font sizes, including the user's set font size (from above) - Predefined font sizes are, `3, 6, 12, 18, 24, 30`.  `F4` key is only active when DebugMenu is visible.
+- The default font size is `12`, which means it will look exactly like the original.
+- `F4` key cycles through predefined font sizes, including the user's set font size in the Project Settings.
+- Predefined font sizes are, `3, 6, 12, 18, 24, 30`.  `F4` key is only active when DebugMenu is visible.
 - Supported font size is from `3-72`, which should accommodate very small viewports, `streched_mode=canvas`, and very large 4k viewports with `stretch_mode=disabled`.
-
-**ALSO:**
-You can now set the startup visibility (`hidden, visible_compact, visible_detailed`) in the Project Settings.  Default is hidden.
+- You can now set the startup visibility (`hidden, visible_compact, visible_detailed`) in the Project Settings.  Default is hidden.
 
 <img width="1503" height="1090" alt="image" src="https://github.com/user-attachments/assets/979c637d-7629-4c61-92ca-76bc02dccc95" />
 
