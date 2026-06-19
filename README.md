@@ -1,5 +1,7 @@
 # Antz's Debug Menu add-on for Godot 4.x
 
+[![Godot Asset Store](https://img.shields.io/badge/v1.2.0-blue?logo=godotengine&label=Godot%20Asset%20Store)](https://store.godotengine.org/asset/antz/antz-debug-menu/)
+
 **Displays performance information in a Godot project during gameplay.**
 Can be used when running from the editor and in exported projects.
 Inspired by id Tech 6/7's performance overlay.
