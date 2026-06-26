@@ -1,4 +1,4 @@
-# Antz's Debug Menu add-on for Godot 4.x
+# Antz's Debug Menu add-on for Godot 4.5+
 
 [![Godot Asset Store](https://img.shields.io/badge/v1.2.0-blue?logo=godotengine&label=Godot%20Asset%20Store)](https://store.godotengine.org/asset/antz/antz-debug-menu/)
 
