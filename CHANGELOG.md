@@ -7,12 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## 1.3.0 - 2026-06-30
+## [1.3.0] - 2026-06-30
 
 ### Added
 - F5 key will take a screenshot (saved to user://screenshots).
 
-## 1.2.0 - 2026-04-30
+## [1.2.0] - 2026-04-30
 
 - Initial Antz's Debug versioned release.
 
