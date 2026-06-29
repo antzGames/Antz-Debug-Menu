@@ -14,12 +14,12 @@ Includes an updated demo.  No more separate repo for plugin and demo.
 
 Here is a brief overview of new features implemented:
 
-- F5 key will take a screenshot (saved to user://screenshots).
+- F5 key will take a screenshot (saved to `user://screenshots`).
 - Added `Draw Calls`, `Primitives`, and total `VRAM` stats for the current frame.
-- Supported font size is from `3-72`.
+- Supports font sizes from `3-72`.
 - A font size can now be set via a Project Setting **OR** by calling `DebugMenu.set_font_size()` in code.
 - `F4` key cycles through predefined font sizes, including the user's set font size in the Project Settings.
-- You can now set the startup visibility (`hidden, visible_compact, visible_detailed`) in the Project Settings.  Default is hidden.
+- You can now set the startup visibility (`hidden, visible_compact, visible_detailed`) in the Project Settings.  Default is `hidden`.
 
 <img width="1503" height="1090" alt="image" src="https://github.com/user-attachments/assets/979c637d-7629-4c61-92ca-76bc02dccc95" />
 
