@@ -182,21 +182,30 @@ offset_bottom = 128.0
 toggle_mode = true
 text = "Toggle Fonts Sizes [F4]"
 
-[node name="Pause" type="Button" parent="." unique_id=1312952157]
+[node name="TakeScreenShot" type="Button" parent="." unique_id=1166075532]
 process_mode = 3
 offset_left = 24.0
 offset_top = 141.0
 offset_right = 224.0
 offset_bottom = 185.0
 toggle_mode = true
-text = "Pause"
+text = "Take Screen Shot [F5]"
 
-[node name="Vsync" type="Button" parent="." unique_id=1980721849]
+[node name="Pause" type="Button" parent="." unique_id=1312952157]
 process_mode = 3
 offset_left = 24.0
 offset_top = 198.0
 offset_right = 224.0
 offset_bottom = 242.0
+toggle_mode = true
+text = "Pause"
+
+[node name="Vsync" type="Button" parent="." unique_id=1980721849]
+process_mode = 3
+offset_left = 24.0
+offset_top = 255.0
+offset_right = 224.0
+offset_bottom = 299.0
 toggle_mode = true
 text = "Toggle Vsync"
 
@@ -216,5 +225,6 @@ expand_mode = 1
 
 [connection signal="pressed" from="CycleDebugMenuDisplayMode" to="." method="_on_cycle_debug_menu_display_mode_pressed"]
 [connection signal="pressed" from="CycleFontsSizes" to="." method="_on_cycle_fonts_sizes_pressed"]
+[connection signal="pressed" from="TakeScreenShot" to="." method="_on_take_screen_shot_pressed"]
 [connection signal="toggled" from="Pause" to="." method="_on_pause_toggled"]
 [connection signal="toggled" from="Vsync" to="." method="_on_vsync_toggled"]

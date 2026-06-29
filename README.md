@@ -1,6 +1,6 @@
 # Antz's Debug Menu add-on for Godot 4.5+
 
-[![Godot Asset Store](https://img.shields.io/badge/v1.2.0-blue?logo=godotengine&label=Godot%20Asset%20Store)](https://store.godotengine.org/asset/antz/antz-debug-menu/)
+[![Godot Asset Store](https://img.shields.io/badge/v1.3.0-blue?logo=godotengine&label=Godot%20Asset%20Store)](https://store.godotengine.org/asset/antz/antz-debug-menu/)
 
 **Displays performance information in a Godot project during gameplay.**
 Can be used when running from the editor and in exported projects.
@@ -12,20 +12,15 @@ Includes an updated demo.  No more separate repo for plugin and demo.
 
 https://github.com/user-attachments/assets/ad3fce70-f1b9-476b-a569-f5e2044fc7eb
 
-Changes from Calinou's version:
-
-Implements: https://github.com/godot-extended-libraries/godot-debug-menu/issues/27 and https://github.com/godot-extended-libraries/godot-debug-menu/issues/18
+## Changes from Calinou's version:
 
 Here is a brief overview of new features implemented:
 
+- F5 key will take a screenshot (saved to user://screenshots).
 - Added `Draw Calls`, `Primitives`, and total `VRAM` stats for the current frame.
-- Crisp font based scaling of overlay.
-- Includes proper scaling of Graphs, Header Widths, Line Spacing, and Font Outline Size.
+- Supported font size is from `3-72`.
 - A font size can now be set via a Project Setting **OR** by calling `DebugMenu.set_font_size()` in code.
-- The default font size is `12`, which means it will look exactly like the original.
 - `F4` key cycles through predefined font sizes, including the user's set font size in the Project Settings.
-- Predefined font sizes are, `3, 6, 12, 18, 24, 30`.  `F4` key is only active when DebugMenu is visible.
-- Supported font size is from `3-72`, which should accommodate very small viewports, `streched_mode=canvas`, and very large 4k viewports with `stretch_mode=disabled`.
 - You can now set the startup visibility (`hidden, visible_compact, visible_detailed`) in the Project Settings.  Default is hidden.
 
 <img width="1503" height="1090" alt="image" src="https://github.com/user-attachments/assets/979c637d-7629-4c61-92ca-76bc02dccc95" />

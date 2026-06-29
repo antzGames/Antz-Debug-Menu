@@ -157,6 +157,14 @@ func _init() -> void:
 		event.keycode = KEY_F4
 		InputMap.action_add_event("cycle_debug_menu_size", event)
 
+	if not InputMap.has_action("debug_menu_screenshot"):
+		# Create default input action if no user-defined override exists.
+		# We can't do it in the editor plugin's activation code as it doesn't seem to work there.
+		InputMap.add_action("debug_menu_screenshot")
+		var event := InputEventKey.new()
+		event.keycode = KEY_F5
+		InputMap.action_add_event("debug_menu_screenshot", event)
+
 func _ready() -> void:
 	# start visibility from project settings
 	if ProjectSettings.has_setting("DebugMenu/settings/startup_visibility"):
@@ -212,10 +220,12 @@ func _ready() -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("cycle_debug_menu"):
 		style = wrapi(style + 1, 0, Style.MAX) as Style
-
 	# Only cycle size/scale when DebugMenu is visible
-	if event.is_action_pressed("cycle_debug_menu_size") and not style == Style.HIDDEN:
+	elif event.is_action_pressed("cycle_debug_menu_size") and style != Style.HIDDEN:
 		display_size = wrapi(display_size + 1, 0, Display_Size.MAX) as Display_Size
+	# Only take screen shot if debug menu is displayed (maybe allow this anytime?)
+	elif event.is_action_pressed("debug_menu_screenshot") and style != Style.HIDDEN:
+		do_screenshot()
 
 #region Scaling functions by Antz
 
@@ -598,6 +608,33 @@ func _process(_delta: float) -> void:
 			&", VRAM: %d" % snapped(Performance.get_monitor(Performance.RENDER_VIDEO_MEM_USED) * 0.000001, 1.0), &" MB")
 
 	last_tick = Time.get_ticks_usec()
+
+
+## Captures a screenshot and saves it to the user folder in user://screenshots.
+func do_screenshot() -> void:
+	await RenderingServer.frame_post_draw # Wait until frame is drawn
+	var image := get_viewport().get_texture().get_image() 
+
+	# Fix image size for true pixel game, too small image output
+	if image.get_size().x != get_viewport().size.x or image.get_size().y != get_viewport().size.y:
+		image.resize(get_viewport().size.x, get_viewport().size.y, Image.INTERPOLATE_NEAREST)
+	
+	if not image:
+		printerr("Failed to capture screen.")
+		return
+
+	# Ensure the screenshots directory exists
+	DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path("user://screenshots"))
+
+	var path := "user://screenshots/screenshot_%s.png" % Time.get_datetime_string_from_system().replace(":", "_")
+	var err := image.save_png(ProjectSettings.globalize_path(path))
+
+	if err == OK:
+		print_rich("🖵 [color=yellow]Screenshot saved to:[/color] ", ProjectSettings.globalize_path(path))
+		OS.shell_show_in_file_manager(ProjectSettings.globalize_path(path))
+	else:
+		printerr("Failed to save screenshot:", err)
+		
 
 
 func _on_visibility_changed() -> void:

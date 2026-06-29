@@ -15,7 +15,7 @@ settings/startup_visibility=1
 [application]
 
 config/name="Antz's Debug Menu"
-config/version="1.2.0"
+config/version="1.3.0"
 run/main_scene="uid://t44bs5k41y56"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 boot_splash/image="uid://dclmij440hqbb"
@@ -27,8 +27,8 @@ DebugMenu="*uid://cggqb75a8w8r"
 
 [display]
 
-window/size/viewport_width=1280
-window/size/viewport_height=720
+window/size/viewport_width=1920
+window/size/viewport_height=1080
 window/vsync/vsync_mode=0
 
 [editor_plugins]

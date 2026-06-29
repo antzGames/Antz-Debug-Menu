@@ -13,3 +13,7 @@ func _on_pause_toggled(toggled_on: bool) -> void:
 
 func _on_vsync_toggled(toggled_on: bool) -> void:
 	DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_ENABLED if toggled_on else DisplayServer.VSYNC_DISABLED)
+
+func _on_take_screen_shot_pressed() -> void:
+	if DebugMenu.style != DebugMenu.Style.HIDDEN:
+		DebugMenu.do_screenshot()
